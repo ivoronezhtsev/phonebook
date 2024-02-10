@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 <head>
-    <title>List of Employee</title>
+    <title>Список контактов</title>
 </head>
 <body>
 <h1>Список контактов</h1>
 </body>
 <table>
     <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Phone</th>
+        <th>Имя</th>
+        <th>Фамилия</th>
+        <th>Телефон</th>
         <th>ID</th>
     </tr>
     <tr th:each="contact: ${contacts}">
@@ -26,5 +26,5 @@
         <td th:text="${contact.id}" />
     </tr>
 </table>
-<input type="button" value="Add" onclick="window.location.href='add'">
+<input type="button" value="Добавить" onclick="window.location.href='add'">
 </html>

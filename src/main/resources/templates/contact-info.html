@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>List of Messages</title>
+</head>
+<body>
+<h1>Welcome!</h1>
+</body>
+<h2>Employee Info</h2>
+<br>
+<h1>Add Contact</h1>
+    <form th:action="@{/contacts}" th:object="${contact}" method="post">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" th:field="*{firstName}" />
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" th:field="*{lastName}" />
+
+        <label for="number">Phones:</label>
+        <input type="text" id="number" th:field="*{number}" />
+
+        <input type="submit" value="Add Contact" />
+    </form>
+</html>

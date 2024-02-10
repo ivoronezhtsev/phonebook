@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>List of Employee</title>
+</head>
+<body>
+<h1>Список контактов</h1>
+</body>
+<table>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Phone</th>
+        <th>ID</th>
+    </tr>
+    <tr th:each="contact: ${contacts}">
+        <td th:text="${contact.firstName}" />
+        <td th:text="${contact.lastName}" />
+        <td>
+            <table>
+                <tr th:each="phone: ${contact.phones}">
+                    <td th:text="${phone.number}" />
+                </tr>
+            </table>
+        </td>
+        <td th:text="${contact.id}" />
+    </tr>
+</table>
+<input type="button" value="Add" onclick="window.location.href='add'">
+</html>

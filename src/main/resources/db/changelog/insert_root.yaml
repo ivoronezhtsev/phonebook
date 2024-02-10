@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert_root
+      author: Igor Voronezhtsev
+      preConditions:
+        - onFail: MARK_RAN
+        - sqlCheck:
+            expectedResult: 0
+            sql: select count(*) from users where username='root'
+      changes:
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: username
+                  value: 'root'
+              - column:
+                  name: password
+                  value: '$2a$11$5.FZoJDs969.XtEu6UdoH.YqdyuqhrS1iUU5CVbEDBYDiV/G1lVYG'

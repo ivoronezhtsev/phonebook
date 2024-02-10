@@ -1,0 +1,31 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_phones_table
+      author: Igor Voronezhtsev
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            - tableExists:
+                tableName: phones
+      changes:
+        - createTable:
+            tableName: phones
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: number
+                  type: varchar(255)
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: contact_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_contact_id
+                    references: contacts(id)
